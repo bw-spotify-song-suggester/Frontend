@@ -5,6 +5,7 @@ import { Route , Switch} from "react-router-dom";
 import PrivateRoute from './components/privateRoute'
 import styled from 'styled-components'
 import HomePage from './components/HomePage';
+import Footer from './components/footer';
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
     <Route path="/login" exact component={Login}/>
     <Route exact path='' component={HomePage}/>
     </Switch>
+    <Footer/>
     </div>
   );
 }
