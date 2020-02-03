@@ -7,6 +7,7 @@ display:flex;
 align-items:baseline;
 color:#EF019F;
 font-family: "Abril Fatface Regular";
+border-bottom:2px solid #EF019F;
 `;
 
 const H1 = styled.h1`
