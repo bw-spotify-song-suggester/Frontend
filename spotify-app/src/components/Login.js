@@ -34,10 +34,10 @@ const BootstrapButton = withStyles({
     fontSize: 16,
     padding: '6px 12px',
     border: '1px solid',
-    color: '#171330',
+    color: 'white',
     lineHeight: 1.5,
-    backgroundColor: '#EF019F',
-    borderColor: '#171330',
+    backgroundColor: '#171330',
+    borderColor: 'white',
     fontFamily: [
       '-apple-system',
       'BlinkMacSystemFont',
@@ -51,8 +51,9 @@ const BootstrapButton = withStyles({
       '"Segoe UI Symbol"',
     ].join(','),
     '&:hover': {
-      backgroundColor: 'pink',
-      borderColor: '#171330',
+      color:'white',
+      backgroundColor: '#EF019F',
+      borderColor: '#white',
       boxShadow: 'none',
     },
     '&:active': {
