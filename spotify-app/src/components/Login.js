@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 import { Button, FormGroup, FormControl, FormLabel } from "react-bootstrap";
 import "./Login.css";
+import styled from 'styled-components'
+
+const Div = styled.div`
+text-align:center
+`;
 
   const Login = (props) => {
 
@@ -17,6 +22,10 @@ import "./Login.css";
   
     return (
       <div className="Login">
+        <Div>
+        <h1>Welcome</h1>
+        <h3>Hello, Welcome back pleage log in.</h3>
+        </Div>
         <form onSubmit={handleSubmit}>
           <FormGroup controlId="email" bsSize="large">
             <FormLabel>Email</FormLabel>
