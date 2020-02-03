@@ -1,24 +1,18 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Navigation from './components/Navigation';
+import { Route } from "react-router-dom";
+import PrivateRoute from './components/privateRoute'
+import styled from 'styled-components'
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navigation />
+     <h1>Welcome to `Blank`</h1>
+     <p>Welcome to our app that suggests songs to you based on your favorite song please sign in
+       or if your a new user sign up here.
+     </p>
     </div>
   );
 }
