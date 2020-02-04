@@ -6,6 +6,7 @@ import PrivateRoute from './components/privateRoute'
 import styled from 'styled-components'
 import HomePage from './components/HomePage';
 import Footer from './components/footer';
+import Register from './components/register';
 
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
       <Navigation />
    <Switch>
     <Route path="/login" exact component={Login}/>
+    <Route exact path='/register' component={Register}/>
     <Route exact path='' component={HomePage}/>
     </Switch>
     <Footer/>

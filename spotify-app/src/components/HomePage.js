@@ -7,7 +7,7 @@ color:#EF019F;
 font-family: "Abril Fatface Regular";
 `;
 
-function HomePage() {
+const HomePage = () => {
   
   return (
     <Div className="HomePage">

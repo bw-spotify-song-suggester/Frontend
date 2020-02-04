@@ -29,6 +29,11 @@ const H3 = styled.h3`
 flex-wrap: nowrap;
 margin:3%;
 cursor: pointer;
+
+.loginNavigation {
+    text-decoration: none;
+    color:#EF019F;
+}
 `;
 
 const Navigation = () => {
@@ -36,7 +41,7 @@ const Navigation = () => {
         <Div>
             <H1>`Song Suggester`</H1>
             <H2><Link exact to='/login' className='loginNavigation'>Sign in</Link></H2>
-            <H3>Sign Up</H3>
+            <H3><Link exact to='/register' className='loginNavigation'>Sign Up</Link></H3>
         </Div>
     )
 }

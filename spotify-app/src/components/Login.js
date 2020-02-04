@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { FormGroup, FormControl, FormLabel } from "react-bootstrap";
 import { withStyles, makeStyles, } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
+import axios from 'axios'
 
 import "./Login.css";
 import styled from 'styled-components'
@@ -121,9 +122,18 @@ const useStyles = makeStyles(theme => ({
       setPasswordValid(formPasswordValid);
     };
 
+   
     function handleSubmit(event) {
       event.preventDefault();
-    }
+      axios.post('https://guarded-everglades-25594.herokuapp.com/https://spotify-buildweek.herokuapp.com/api/auth/login', credentials)
+      .then(res => {
+        console.log(res)
+        localStorage.setItem('token', res.data.token);
+        props.history.push('');
+    })
+    .catch(err => console.log(err));
+}
+
     const handleChange = e => {
       setCredentials({
         ...credentials, [e.target.name]: e.target.value
@@ -138,9 +148,9 @@ const useStyles = makeStyles(theme => ({
         <h3>Hello, Welcome back please log in.</h3>
         </Div>
         <Form onSubmit={handleSubmit}>
-          <FormGroup controlId="email" bsSize="large">
-            <TextField className={classes.root} id="standard-basic" label="Email"  
-              type="email"
+          <FormGroup controlId="Username" bsSize="large">
+            <TextField className={classes.root} id="standard-basic" label="Username"  
+              type="username"
               value={credentials.username}
               onChange={handleChange}
               name='username'
@@ -166,7 +176,7 @@ const useStyles = makeStyles(theme => ({
               <span> </span>
             )}
           </FormGroup>
-          <BootstrapButton  className='button' variant="contained" color="primary" disableRipple>
+          <BootstrapButton onClick={handleSubmit} className='button' variant="contained" color="primary" disableRipple>
         Log In
       </BootstrapButton>
         </Form>
