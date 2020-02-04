@@ -74,43 +74,99 @@ const useStyles = makeStyles(theme => ({
       width:'200px',
     },
   },
+  input: {
+    color:'red',
+  }
 }));
 
   const Login = (props) => {
     const classes = useStyles();
+    const [credentials, setCredentials] = useState({
+      username: '',
+      password: '',
+    });
+  
+    const [formErrors, setFormErrors] = useState({
+      username: "",
+      password: "",
+    });
 
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+    const [usernameValid, setUsernameValid] = useState(false);
+    const [passwordValid, setPasswordValid] = useState(false);
+    
   
-    function validateForm() {
-      return email.length > 0 && password.length > 0;
-    }
+    const validateField = (name, value) => {
+      let fieldValidationErrors = formErrors;
+      let formUsernameValid = usernameValid;
+      let formPasswordValid = passwordValid;
   
+      switch (name) {
+        case "username":
+          formUsernameValid = value.length >= 4;
+          fieldValidationErrors.username = formUsernameValid
+            ? ""
+            : " is too short";
+          break;
+        case "password":
+          formPasswordValid = value.length >= 6;
+          fieldValidationErrors.password = formPasswordValid
+            ? ""
+            : " is too short";
+          break;
+        default:
+          break;
+      }
+      setFormErrors(fieldValidationErrors);
+      setUsernameValid(formUsernameValid);
+      setPasswordValid(formPasswordValid);
+    };
+
     function handleSubmit(event) {
       event.preventDefault();
     }
-  
+    const handleChange = e => {
+      setCredentials({
+        ...credentials, [e.target.name]: e.target.value
+      });
+      validateField(e.target.name, e.target.value);
+    };
+   
     return (
       <Div2 className="Login">
         <Div>
         <h1>Welcome</h1>
-        <h3>Hello, Welcome back pleage log in.</h3>
+        <h3>Hello, Welcome back please log in.</h3>
         </Div>
         <Form onSubmit={handleSubmit}>
           <FormGroup controlId="email" bsSize="large">
             <TextField className={classes.root} id="standard-basic" label="Email"  
-              autoFocus
               type="email"
-              value={email}
-              onChange={e => setEmail(e.target.value)}/>
+              value={credentials.username}
+              onChange={handleChange}
+              name='username'
+              />
+              {formErrors.username ? (
+              <span className="input-error">Username {formErrors.username}</span>
+            ) : (
+              <span> </span>
+            )}
           </FormGroup>
           <FormGroup  controlId="password" bsSize="large">
             <TextField className={classes.root} id="standard-basic" label="Password"  
-              value={password}
-              onChange={e => setPassword(e.target.value)}
-              type="password"/>
+              value={credentials.password}
+              onChange={handleChange}
+              type="password"
+              name='password'
+              />
+              {formErrors.password ? (
+              <span className="input-error">
+                Password {formErrors.password}
+              </span>
+            ) : (
+              <span> </span>
+            )}
           </FormGroup>
-          <BootstrapButton className='button' variant="contained" color="primary" disableRipple>
+          <BootstrapButton  className='button' variant="contained" color="primary" disableRipple>
         Log In
       </BootstrapButton>
         </Form>
