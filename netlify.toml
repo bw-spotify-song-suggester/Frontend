@@ -1,6 +1,6 @@
 [build]
 command="yarn build"
-publish="spotify-app/build"
+publish="/build"
 base="spotify-app/"
 [[redirect]]
 from="/*"
