@@ -1,24 +1,26 @@
 import React from 'react';
-import './App.css';
-import Login from './components/Login/Login';
+import Login from './components/Login';
 import Navigation from './components/Navigation';
-import { Route } from "react-router-dom";
+import { Route , Switch} from "react-router-dom";
 import PrivateRoute from './components/privateRoute'
 import styled from 'styled-components'
+import HomePage from './components/HomePage';
+import Footer from './components/footer';
+import Register from './components/register';
+import Dashboard from './components/Dashboard';
 
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-      </header>
-    <Route path="/login" exact component={Login}/>
       <Navigation />
-     <h1>Welcome to `Blank`</h1>
-     <p>Welcome to our app that suggests songs to you based on your favorite song please sign in
-       or if your a new user sign up here.
-     </p>
+   <Switch>
+    <Route path="/login" exact component={Login}/>
+    <Route path='/dashboard' component={Dashboard}/>
+    <Route exact path='/register' component={Register}/>
+    <Route exact path='' component={HomePage}/>
+    </Switch>
+    <Footer/>
     </div>
   );
 }
