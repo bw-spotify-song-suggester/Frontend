@@ -1,7 +1,7 @@
 [build]
 command="yarn build"
 publish="spotify-app/build"
-base="spotify-app"
+base="spotify-app/"
 [[redirect]]
 from="/*"
 to="/index.html"
