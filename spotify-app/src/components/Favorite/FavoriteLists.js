@@ -9,10 +9,17 @@ const FavoriteList = (props) => {
     console.log(id)
 
     useEffect(() => {
+<<<<<<< Updated upstream
         axiosWithAuth().get(`https://spotify-buildweek.herokuapp.com/api/user/dashboard/1/favorites/`)
         .then(response => {
             setFav(response.data);
             console.log('this is fav',fav)
+=======
+        axios.get('https://jsonplaceholder.typicode.com/users')
+        .then(response => {
+            setFav(response.data);
+            //console.log(fav)
+>>>>>>> Stashed changes
         })
         .catch(error => {
             console.log('ehh error', error)
