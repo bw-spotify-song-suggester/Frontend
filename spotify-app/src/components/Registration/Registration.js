@@ -8,8 +8,18 @@ import { Button, FormGroup, FormControl, FormLabel } from "react-bootstrap";
     const [username, setUsername] = userState("");
     const [password, setPassword] = useState("");
   
-    function validateForm() {
-      return email.length > 0 && username.length > 0 && password.length > 0;
+    function validateForm(values) {
+        let errors = {};
+        if(values.username.trim() === "") {
+            errors.username = "Username must not be empty"
+        }
+        if(values.email.trim() === "") {
+            errors.email = "Email must not be empty"
+        }
+        if(values.password.trim() === "") {
+            errors.password = "Password must not be empty"
+        }
+        return errors;
     }
   
     function handleSubmit(event) {
