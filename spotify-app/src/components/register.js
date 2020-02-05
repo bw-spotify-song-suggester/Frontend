@@ -58,7 +58,7 @@ const Register = (props) => {
 
       function handleSubmit(event) {
         event.preventDefault();
-        axios.post('https://guarded-everglades-25594.herokuapp.com/https://spotify-buildweek.herokuapp.com/api/auth/register', credentials)
+        axios.post('https://spotify-buildweek.herokuapp.com/api/auth/register', credentials)
         .then(res => console.log(res))
         console.log(credentials)
         // props.history.push('')

@@ -7,7 +7,7 @@ import styled from 'styled-components'
 import HomePage from './components/HomePage';
 import Footer from './components/footer';
 import Register from './components/register';
-import Dashboard from './components/Dashboard';
+import FavoriteList from '../src/components/Favorite/FavoriteLists'
 
 
 
@@ -15,12 +15,12 @@ function App() {
   return (
     <div className="App">
       <Navigation />
-   <Switch>
+  <Switch>
+    <PrivateRoute exact path='/fav' component={FavoriteList}/>
     <Route path="/login" exact component={Login}/>
-    <Route path='/dashboard' component={Dashboard}/>
     <Route exact path='/register' component={Register}/>
-    <Route exact path='' component={HomePage}/>
-    </Switch>
+    <PrivateRoute exact path='' component={HomePage}/>
+  </Switch>
     <Footer/>
     </div>
   );
