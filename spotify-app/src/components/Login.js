@@ -125,10 +125,11 @@ const useStyles = makeStyles(theme => ({
    
     function handleSubmit(event) {
       event.preventDefault();
-      axios.post('https://guarded-everglades-25594.herokuapp.com/https://spotify-buildweek.herokuapp.com/api/auth/login', credentials)
+      axios.post('https://spotify-buildweek.herokuapp.com/api/auth/login', credentials)
       .then(res => {
         console.log(res)
         localStorage.setItem('token', res.data.token);
+        localStorage.setItem('id', res.data.id)
         props.history.push('');
     })
     .catch(err => console.log(err));
