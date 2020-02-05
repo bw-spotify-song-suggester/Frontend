@@ -43,6 +43,7 @@ const useStyles = makeStyles(theme => ({
  
 
 const Favorite = (props) => {
+<<<<<<< Updated upstream
 const classes = useStyles();
 const theme = useTheme();
     console.log("Favorite:", props);
@@ -68,6 +69,17 @@ const theme = useTheme();
           <IconButton aria-label="next">
             {theme.direction === 'rtl' ? <SkipPreviousIcon /> : <SkipNextIcon />}
           </IconButton>
+=======
+    //console.log("Favorite:", props);
+    return (
+        <div>
+            <h1>
+                Track:{props.data.username}
+            </h1>
+            <h2>
+                Artist:{props.data.name}
+            </h2>
+>>>>>>> Stashed changes
         </div>
       </div>
       <CardMedia
