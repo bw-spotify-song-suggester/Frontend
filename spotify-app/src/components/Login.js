@@ -192,8 +192,8 @@ const useStyles = makeStyles(theme => ({
           </FormGroup>
 
           <BootstrapButton onClick={handleSubmit} disabled={!validateForm()} className='button' variant="contained" color="primary" disableRipple>
-        Log In
-      </BootstrapButton>
+            Log In
+          </BootstrapButton>
 
         </Form>
       </Div2>

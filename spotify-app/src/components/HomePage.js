@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components'
 import { axiosWithAuth } from '../utilities/axiosWithAuth';
-import MaterialTable from 'material-table';
+//import MaterialTable from 'material-table';
 
 // export default function HomePage(props) {
 //   const [state, setState] = useState({
