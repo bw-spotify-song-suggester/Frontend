@@ -4,7 +4,7 @@ import "./Registration.css";
 import { withStyles, makeStyles, } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import styled from 'styled-components';
-import Background from '../../Images/background2.JPG';
+import Background from '../../Images/background2.png';
 import Button from '@material-ui/core/Button';
 import axios from 'axios';
 
