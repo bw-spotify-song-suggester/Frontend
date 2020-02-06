@@ -8,6 +8,7 @@ align-items:baseline;
 color:#EF019F;
 font-family: "Abril Fatface Regular";
 border-bottom:2px solid #EF019F;
+background-color:#171330;
 `;
 
 const Div2 = styled.div`

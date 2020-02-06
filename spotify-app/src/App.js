@@ -10,31 +10,26 @@ import Register from './components/register';
 import FavoriteList from '../src/components/Favorite/FavoriteLists'
 
 import { axiosWithAuth } from './utilities/axiosWithAuth'
-
+import {SongContext} from './contexts/SongContext'
+import HomePageCard from './components/HomePageCard';
 
 
 
 function App() {
-const [songs, setSongs] = useState([])
-const id = `${localStorage.getItem('id')}`
-
-
-useEffect(()=> {
-  axiosWithAuth().get(`/api/user/dashboard/${id}/songs`)
-  .then(res =>{
-    setSongs(res.data)
-  })
-})
-
 
   return (
     <div className="App">
       <Navigation />
+     
   <Switch>
+  
+  {/* <SongContext.Provider value={song}> */}
     <PrivateRoute exact path='/fav' component={FavoriteList}/>
     <Route path="/login" exact component={Login}/>
     <Route exact path='/register' component={Register}/>
     <PrivateRoute exact path='' component={HomePage}/>
+    {/* </SongContext.Provider> */}
+    
   </Switch>
     <Footer/>
     </div>
