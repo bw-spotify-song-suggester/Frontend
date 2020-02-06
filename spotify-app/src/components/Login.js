@@ -123,6 +123,18 @@ const useStyles = makeStyles(theme => ({
     };
 
    
+    function validateForm() {
+      console.log('this is values',credentials)
+        let errors = {};
+        if(credentials.username.trim() === "") {
+            errors.username = "Username must not be empty"
+        }
+        if(credentials.password.trim() === "") {
+            errors.password = "Password must not be empty"
+        }
+        return errors;
+    }
+  
     function handleSubmit(event) {
       event.preventDefault();
       axios.post('https://spotify-buildweek.herokuapp.com/api/auth/login', credentials)
@@ -134,6 +146,7 @@ const useStyles = makeStyles(theme => ({
     })
     .catch(err => console.log(err));
 }
+
 
     const handleChange = e => {
       setCredentials({
@@ -177,9 +190,11 @@ const useStyles = makeStyles(theme => ({
               <span> </span>
             )}
           </FormGroup>
-          <BootstrapButton onClick={handleSubmit} className='button' variant="contained" color="primary" disableRipple>
-            Log In
-          </BootstrapButton>
+
+          <BootstrapButton onClick={handleSubmit} disabled={!validateForm()} className='button' variant="contained" color="primary" disableRipple>
+        Log In
+      </BootstrapButton>
+
         </Form>
       </Div2>
     );

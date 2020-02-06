@@ -6,12 +6,12 @@ import { axiosWithAuth } from '../../utilities/axiosWithAuth'
 const FavoriteList = (props) => {
     const [fav, setFav] = useState([]);
     const id = `${localStorage.getItem('id')}`
-    console.log(id)
 
     useEffect(() => {
-        axiosWithAuth().get(`https://spotify-buildweek.herokuapp.com/api/user/dashboard/1/favorites/`)
+        axiosWithAuth().get(`https://spotify-buildweek.herokuapp.com/api/user/dashboard/${id}/favorites/`)
         .then(response => {
             setFav(response.data);
+            console.log('this is res',response)
             console.log('this is fav',fav)
 
         })

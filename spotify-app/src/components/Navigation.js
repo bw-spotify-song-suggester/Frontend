@@ -10,25 +10,24 @@ font-family: "Abril Fatface Regular";
 border-bottom:2px solid #EF019F;
 `;
 
-const H1 = styled.h1`
-margin:2%;
-`;
-const H2 = styled.h3`
+const Div2 = styled.div`
 display:flex;
-margin-left:60%;
-cursor: pointer;
-text-decoration: none;
+flex-direction:row;
+margin-left:70%;
+justify-content: space-between;
+width:15%;
 
-.loginNavigation {
-    text-decoration: none;
-    color:#EF019F;
-}
+`;
+
+const H1 = styled.h2`
+display:flex;
 `;
 
 const H3 = styled.h3`
 flex-wrap: nowrap;
-margin:3%;
 cursor: pointer;
+
+
 
 .loginNavigation {
     text-decoration: none;
@@ -40,8 +39,11 @@ const Navigation = () => {
     return (
         <Div>
             <H1>`Song Suggester`</H1>
-            <H2><Link exact to='/login' className='loginNavigation'>Sign in</Link></H2>
+            <Div2>
+            <H3><Link exact to='/login' className='loginNavigation'>Sign in</Link></H3>
             <H3><Link exact to='/register' className='loginNavigation'>Sign Up</Link></H3>
+            <H3><Link exact to='/fav' className='loginNavigation'> Favorites</Link> </H3>
+            </Div2>
         </Div>
     )
 }
