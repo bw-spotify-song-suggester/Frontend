@@ -1,0 +1,9 @@
+.Login {
+    padding: 60px 0;
+    color:white;
+}
+
+.Login form {
+    margin: 0 auto;
+    max-width: 320px;
+}

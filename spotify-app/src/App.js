@@ -1,24 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {useState, useEffect} from 'react';
+import Login from './components/Login';
+import Navigation from './components/Navigation';
+import { Route , Switch} from "react-router-dom";
+import PrivateRoute from './components/privateRoute'
+import styled from 'styled-components'
+import HomePage from './components/HomePage';
+import Footer from './components/footer';
+import Register from './components/register';
+import FavoriteList from '../src/components/Favorite/FavoriteLists'
+import { axiosWithAuth } from './utilities/axiosWithAuth'
+import {SongContext} from './contexts/SongContext'
+import HomePageCard from './components/HomePageCard';
 
 function App() {
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navigation />
+     
+  <Switch>
+  
+  {/* <SongContext.Provider value={song}> */}
+    <PrivateRoute exact path='/fav' component={FavoriteList}/>
+    <Route path="/login" exact component={Login}/>
+    <Route exact path='/register' component={Register}/>
+    <PrivateRoute exact path='' component={HomePage}/>
+    {/* </SongContext.Provider> */}
+    
+  </Switch>
+    <Footer/>
     </div>
   );
 }
