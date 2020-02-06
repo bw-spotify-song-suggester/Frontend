@@ -13,6 +13,7 @@ const FavoriteList = (props) => {
             setFav(response.data);
             console.log('this is res',response)
             console.log('this is fav',fav)
+
         })
         .catch(error => {
             console.log('ehh error', error)
