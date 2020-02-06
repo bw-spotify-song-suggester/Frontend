@@ -1,12 +1,15 @@
-import React from 'react';
-import styled from 'styled-components'
-
+import React, { useEffect, useState }from 'react';
+import styled from 'styled-components';
+import { axiosWithAuth } from '../utilities/axiosWithAuth';
 
 const Div = styled.div`
 text-align:center;
 color:#EF019F;
 font-family: "Abril Fatface Regular";
 `;
+
+
+const id = `${localStorage.getItem('id')}`
 
 const HomePage = () => {
   
