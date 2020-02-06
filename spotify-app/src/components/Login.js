@@ -97,6 +97,7 @@ const useStyles = makeStyles(theme => ({
     
   
     const validateField = (name, value) => {
+      console.log(name);
       let fieldValidationErrors = formErrors;
       let formUsernameValid = usernameValid;
       let formPasswordValid = passwordValid;

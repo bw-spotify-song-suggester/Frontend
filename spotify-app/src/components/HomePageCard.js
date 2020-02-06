@@ -46,7 +46,7 @@ max-width:30%;
 const HomePageCard = (props) => {
 const classes = useStyles();
 const theme = useTheme();
-    console.log('this is props',props)
+    //console.log('this is props',props)
 
 
     return (

@@ -60,5 +60,5 @@ useEffect(()=> {
   );
 }
 
-export default HomePage;
+
  
