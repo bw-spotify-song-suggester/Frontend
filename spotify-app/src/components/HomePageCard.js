@@ -87,7 +87,7 @@ console.log('this is fav state outside ',state)
             console.log('ehh error', error)
         },[])
       }
-
+console.log('hey')
       function handleSim(e){
         e.preventDefault();
         console.log('sim in handlesim',sim)
