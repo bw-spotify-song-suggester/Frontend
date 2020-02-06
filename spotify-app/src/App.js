@@ -9,25 +9,27 @@ import Footer from './components/footer';
 import Register from './components/register';
 import FavoriteList from '../src/components/Favorite/FavoriteLists'
 import { axiosWithAuth } from './utilities/axiosWithAuth'
-import {SongContext} from './contexts/SongContext'
+import  {UserIdContext}  from './contexts/UserIdContext'
 import HomePageCard from './components/HomePageCard';
 
-function App() {
 
+function App() {
+  const id = `${localStorage.getItem('id')}`
   return (
     <div className="App">
-      <Navigation />
+    <Navigation />
      
+  <UserIdContext.Provider value={id}>
+    
   <Switch>
-  
-  {/* <SongContext.Provider value={song}> */}
     <PrivateRoute exact path='/fav' component={FavoriteList}/>
     <Route path="/login" exact component={Login}/>
     <Route exact path='/register' component={Register}/>
     <PrivateRoute exact path='' component={HomePage}/>
-    {/* </SongContext.Provider> */}
-    
-  </Switch>
+    </Switch>
+   
+    </UserIdContext.Provider>
+  
     <Footer/>
     </div>
   );
