@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import Login from './components/Login';
 import Navigation from './components/Navigation';
 import { Route , Switch} from "react-router-dom";
@@ -8,10 +8,22 @@ import HomePage from './components/HomePage';
 import Footer from './components/footer';
 import Register from './components/register';
 import FavoriteList from '../src/components/Favorite/FavoriteLists'
-
+import { axiosWithAuth } from './utilities/axiosWithAuth'
 
 
 function App() {
+const [songs, setSongs] = useState([])
+const id = `${localStorage.getItem('id')}`
+
+
+useEffect(()=> {
+  axiosWithAuth().get(`/api/user/dashboard/${id}/songs`)
+  .then(res =>{
+    setSongs(res.data)
+  })
+})
+
+
   return (
     <div className="App">
       <Navigation />
