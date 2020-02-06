@@ -6,9 +6,11 @@ import MaterialTable from 'material-table';
 import  { SongContext } from '../contexts/SongContext'
 import HomePageCard from './HomePageCard'
 
+
 export default function HomePage(props) {
   const songs  = useContext(SongContext);
  
+
 
 console.log('this is songs context',songs)
 const handleChange = e => {
@@ -55,4 +57,6 @@ useEffect(()=> {
      </section>
   );
 }
+
+export default HomePage;
  
