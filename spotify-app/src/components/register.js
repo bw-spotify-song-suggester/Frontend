@@ -7,7 +7,7 @@ import { withStyles, makeStyles, } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 
 
-import Background from '../Images/background.PNG'
+import Background from '../Images/background2.png'
 import Button from '@material-ui/core/Button';
 
 const Div = styled.div`
