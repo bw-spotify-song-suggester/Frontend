@@ -9,6 +9,7 @@ import axiosWithAuth from '../utilities/axiosWithAuth'
 // font-family: "Abril Fatface Regular";
 // `;
 
+
 const Register = (props) => {
     const [credentials, setCredentials] = useState({
         username: '',

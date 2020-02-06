@@ -8,7 +8,7 @@ import HomePage from './components/HomePage';
 import Footer from './components/footer';
 import Register from './components/register';
 import FavoriteList from '../src/components/Favorite/FavoriteLists'
-
+import Registration from '../src/components/Registration/Registration'
 
 
 function App() {
@@ -18,7 +18,7 @@ function App() {
   <Switch>
     <PrivateRoute exact path='/fav' component={FavoriteList}/>
     <Route path="/login" exact component={Login}/>
-    <Route exact path='/register' component={Register}/>
+    <Route exact path='/register' component={Registration}/>
     <PrivateRoute exact path='' component={HomePage}/>
   </Switch>
     <Footer/>
