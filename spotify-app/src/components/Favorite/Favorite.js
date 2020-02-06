@@ -43,41 +43,42 @@ const useStyles = makeStyles(theme => ({
  
 
 const Favorite = (props) => {
-const classes = useStyles();
-const theme = useTheme();
+  const classes = useStyles();
+  const theme = useTheme();
+    
     console.log("Favorite:", props);
-    return (
+      return (
         <Div>
-        <Card className={classes.root}>
-      <div className={classes.details}>
-        <CardContent className={classes.content}>
-          <Typography component="h5" variant="h5">
-          {props.data.track_name}
-          </Typography>
-          <Typography variant="subtitle1" color="textSecondary">
-          {props.data.artist_name}
-          </Typography>
-        </CardContent>
-        <div className={classes.controls}>
-          <IconButton aria-label="previous">
-            {theme.direction === 'rtl' ? <SkipNextIcon /> : <SkipPreviousIcon />}
-          </IconButton>
-          <IconButton aria-label="play/pause">
-            <PlayArrowIcon className={classes.playIcon} />
-          </IconButton>
-          <IconButton aria-label="next">
-            {theme.direction === 'rtl' ? <SkipPreviousIcon /> : <SkipNextIcon />}
-          </IconButton>
-        </div>
-      </div>
-      <CardMedia
-        className={classes.cover}
-        image="/static/images/cards/live-from-space.jpg"
-        title="Live from space album cover"
-      />
-    </Card>
-    </Div>
-    )
+          <Card className={classes.root}>
+            <div className={classes.details}>
+              <CardContent className={classes.content}>
+                <Typography component="h5" variant="h5">
+                  {props.data.track_name}
+                </Typography>
+                <Typography variant="subtitle1" color="textSecondary">
+                  {props.data.artist_name}
+                </Typography>
+              </CardContent>
+              <div className={classes.controls}>
+                <IconButton aria-label="previous">
+                  {theme.direction === 'rtl' ? <SkipNextIcon /> : <SkipPreviousIcon />}
+                </IconButton>
+                <IconButton aria-label="play/pause">
+                  <PlayArrowIcon className={classes.playIcon} />
+                </IconButton>
+                <IconButton aria-label="next">
+                  {theme.direction === 'rtl' ? <SkipPreviousIcon /> : <SkipNextIcon />}
+                </IconButton>
+              </div>
+            </div>
+            <CardMedia
+              className={classes.cover}
+              image="/static/images/cards/live-from-space.jpg"
+              title="Live from space album cover"
+            />
+          </Card>
+        </Div>
+  )
 }
 
 export default Favorite;
