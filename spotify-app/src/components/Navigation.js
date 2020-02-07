@@ -50,7 +50,7 @@ const Navigation = (props) => {
             <H1> Song Suggester </H1>
             <Div2>
             
-            <H3><Link exact to='' className='loginNavigation'> Search </Link> </H3>
+            <H3><Link exact to='/homepage' className='loginNavigation'> Search </Link> </H3>
             <H3><Link exact to='/fav' className='loginNavigation'> Favorites</Link> </H3>
             <H3><Link exact to='/profile' className='loginNavigation'> Profile</Link> </H3>
             <H3><a href='https://symthinity-spotify-song-suggester-1.netlify.com/' className='loginNavigation'> Marketing Page </a></H3>
