@@ -78,7 +78,7 @@ function handleDelete(e){
   }
 
     console.log("Favorite:", props);
-    return (
+      return (
         <Div>
         <Card className={classes.root}>
       <div className={classes.details}>
