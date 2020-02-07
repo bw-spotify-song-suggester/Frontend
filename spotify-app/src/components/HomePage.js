@@ -17,6 +17,7 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 
 
 
+
 const useStyles = makeStyles(theme => ({
   root: {
     padding: '2px 4px',
@@ -41,9 +42,11 @@ const Section = styled.section`
   text-align:center;
   color:#EF019F;
 `;
+
 export default function HomePage(props) {
   const id = useContext(UserIdContext);
   const classes = useStyles();
+
 
 
 const handleChange = e => {
@@ -105,4 +108,6 @@ console.log('this is search results',searchResults)
      </Section>
   );
 }
+
+export default HomePage;
  
