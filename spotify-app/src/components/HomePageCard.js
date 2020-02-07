@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
@@ -9,18 +9,25 @@ import SkipPreviousIcon from '@material-ui/icons/SkipPrevious';
 import PlayArrowIcon from '@material-ui/icons/PlayArrow';
 import SkipNextIcon from '@material-ui/icons/SkipNext';
 import styled from 'styled-components'
-
+import SaveIcon from '@material-ui/icons/Save';
+import Button from '@material-ui/core/Button';
+import {axiosWithAuth} from '../utilities/axiosWithAuth'
 
 const useStyles = makeStyles(theme => ({
   root: {
     display: 'flex',
+    justifyContent:'center',
+    maxwidth:'300px'
   },
   details: {
     display: 'flex',
     flexDirection: 'column',
+    textAlign:'center'
   },
   content: {
     flex: '1 0 auto',
+    minwidth:'200px',
+    maxwidth:'200px',
   },
   cover: {
     width: 151,
@@ -41,14 +48,60 @@ const useStyles = makeStyles(theme => ({
 const Div = styled.div`
 margin:2% auto;
 max-width:30%;
-
+.button {
+  margin:2px;
+}
 `;
+const Div2 = styled.div`
+max-width:100%;
+display:flex;
+justify-content:space-between;
+`;
+const id = `${localStorage.getItem('id')}`
+
 const HomePageCard = (props) => {
+  const [state, setState] = useState({
+  user_id: `${id}`,
+	song_id: `${props.trackId}`
+  })
+  const [sim, setSim]= useState({
+    track_id: `${props.trackId}`
+  })
+
+  
 const classes = useStyles();
 const theme = useTheme();
-    console.log('this is props',props)
+console.log('this is fav state outside ',state)
 
-
+    function handleSave(event){
+      console.log(props.trackId)
+      console.log('this is state in save', state)
+      event.preventDefault();
+        axiosWithAuth().post(`https://spotify-buildweek.herokuapp.com/api/user/dashboard/${id}/favorites/`, state)
+        .then(response => {
+          console.log('this is post fav',response)
+            console.log('this is fav state',state)
+            window.alert('Song added to favorites')
+        })
+        .catch(error => {
+            console.log('ehh error', error)
+        },[])
+      }
+console.log('hey')
+      function handleSim(e){
+        e.preventDefault();
+        console.log('sim in handlesim',sim)
+        axiosWithAuth().post('https://song-suggest-josh.herokuapp.com/processjson', sim)
+        .then(response => {
+          console.log('this is sim res',response)
+            console.log('this is fav state',state)
+            window.alert('Song added to favorites')
+        })
+        .catch(error => {
+            console.log('ehh error', error)
+        },[])
+      }
+      
     return (
         <Div>
         <Card className={classes.root}>
@@ -60,24 +113,27 @@ const theme = useTheme();
           <Typography variant="subtitle1" color="textSecondary">
           {props.artist}
           </Typography>
+          <Div2>
+          <Button
+        className="button"
+        variant="contained"
+        color="primary"
+        size="large"
+        startIcon={<SaveIcon />}
+        onClick={handleSave}
+      >
+        Save
+      </Button>
+      <Button variant="contained" color="primary"
+       onClick={handleSim}
+       className="button"
+      >
+        Similar Songs
+      </Button>
+      </Div2>
         </CardContent>
-        <div className={classes.controls}>
-          <IconButton aria-label="previous">
-            {theme.direction === 'rtl' ? <SkipNextIcon /> : <SkipPreviousIcon />}
-          </IconButton>
-          <IconButton aria-label="play/pause">
-            <PlayArrowIcon className={classes.playIcon} />
-          </IconButton>
-          <IconButton aria-label="next">
-            {theme.direction === 'rtl' ? <SkipPreviousIcon /> : <SkipNextIcon />}
-          </IconButton>
-        </div>
       </div>
-      <CardMedia
-        className={classes.cover}
-        image="/static/images/cards/live-from-space.jpg"
-        title="Live from space album cover"
-      />
+        
     </Card>
     </Div>
     )
