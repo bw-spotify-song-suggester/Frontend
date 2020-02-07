@@ -11,6 +11,7 @@ import FavoriteList from '../src/components/Favorite/FavoriteLists'
 import { axiosWithAuth } from './utilities/axiosWithAuth'
 import  {UserIdContext}  from './contexts/UserIdContext'
 import HomePageCard from './components/HomePageCard';
+import Profile from './components/Profile';
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
     <PrivateRoute exact path='/fav' component={FavoriteList}/>
     <Route path="/login" exact component={Login}/>
     <Route exact path='/register' component={Register}/>
+    <PrivateRoute exact path='/profile' component={Profile}/>
     <PrivateRoute exact path='' component={HomePage}/>
     </Switch>
    

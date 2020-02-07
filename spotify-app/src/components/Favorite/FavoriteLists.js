@@ -27,6 +27,7 @@ const FavoriteList = (props) => {
                   return (
                       <Favorite 
                         data ={data}
+                        history={props.history}
                       />
                   )
               })

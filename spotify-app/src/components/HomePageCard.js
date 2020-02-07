@@ -93,7 +93,7 @@ console.log('hey')
         console.log('sim in handlesim',sim)
         axiosWithAuth().post('https://song-suggest-josh.herokuapp.com/processjson', sim)
         .then(response => {
-          console.log('this is post fav',response)
+          console.log('this is sim res',response)
             console.log('this is fav state',state)
             window.alert('Song added to favorites')
         })

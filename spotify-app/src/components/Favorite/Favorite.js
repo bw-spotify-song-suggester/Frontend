@@ -59,15 +59,18 @@ const [state, setState] = useState({
   })
   
   console.log('this is state', state) 
-console.log('this is props in fav',props.data.track_id)
+console.log('this is props in fav',props.history)
 console.log('this is props data',props.data)
+console.log(props)
 
-function handleDelete(){
-  console.log('state in delete', state)
+function handleDelete(e){
+  console.log('state in delete', state.song_id)
+  e.preventDefault();
     axiosWithAuth()
-    .delete(`https://spotify-buildweek.herokuapp.com/api/user/dashboard/${id}/favorites/`, state)
+    .delete(`https://spotify-buildweek.herokuapp.com/api/user/dashboard/${id}/favorites/${state.song_id}`)
     .then(response => {
         console.log('this is delete res',response)
+        props.history.push('')
     })
     .catch(error => {
         console.log('ehh error', error)
