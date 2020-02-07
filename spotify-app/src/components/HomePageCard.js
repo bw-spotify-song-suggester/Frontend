@@ -71,7 +71,9 @@ const HomePageCard = (props) => {
   
 const classes = useStyles();
 const theme = useTheme();
+
 console.log('this is fav state outside ',state)
+
 
     function handleSave(event){
       console.log(props.trackId)

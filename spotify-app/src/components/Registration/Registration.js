@@ -183,7 +183,7 @@ const useStyles = makeStyles(theme => ({
       let formUsernameValid = usernameValid;
       let formEmailValid = emailValid;
       let formPasswordValid = passwordValid;
-  
+      
       switch (name) {
         case "username":
           formUsernameValid = value.length >= 4;

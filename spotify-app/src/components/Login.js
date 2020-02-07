@@ -98,6 +98,7 @@ const useStyles = makeStyles(theme => ({
     
   
     const validateField = (name, value) => {
+      
       let fieldValidationErrors = formErrors;
       let formUsernameValid = usernameValid;
       let formPasswordValid = passwordValid;
@@ -193,8 +194,8 @@ const useStyles = makeStyles(theme => ({
           </FormGroup>
 
           <BootstrapButton onClick={handleSubmit} disabled={!validateForm()} className='button' variant="contained" color="primary" disableRipple>
-        Log In
-      </BootstrapButton>
+            Log In
+          </BootstrapButton>
 
         </Form>
       </Div2>

@@ -143,8 +143,8 @@ const Register = (props) => {
     event.preventDefault();
     axios.post('https://spotify-buildweek.herokuapp.com/api/auth/register', credentials)
     .then(res => {
-  props.history.push('/login')
-  console.log('this is register res',res)
+      props.history.push('/login')
+      console.log('this is register res',res)
     })
   }
 
@@ -191,14 +191,14 @@ const Register = (props) => {
           )}
         </FormGroup>
         <BootstrapButton onClick={handleSubmit} disabled={!validateForm()} className='button' variant="contained" color="primary" disableRipple>
-      Register
-    </BootstrapButton>
+          Register
+        </BootstrapButton>
       </Form>
     </Div2>
   );
 }
 
 
-      export default Register;
+export default Register;
 
  
