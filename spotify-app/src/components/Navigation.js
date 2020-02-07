@@ -16,7 +16,7 @@ display:flex;
 flex-direction:row;
 margin-left:50%;
 justify-content: space-between;
-width:35%;
+width:45%;
 `;
 
 const H1 = styled.h2`
@@ -43,6 +43,7 @@ const Navigation = () => {
             <Div2>
             <H3><Link exact to='/login' className='loginNavigation'>Sign in</Link></H3>
             <H3><Link exact to='/register' className='loginNavigation'>Sign Up</Link></H3>
+            <H3><Link exact to='/homepage' className='loginNavigation'>Home</Link></H3>
             <H3><Link exact to='/fav' className='loginNavigation'> Favorites</Link> </H3>
             <H3><Link exact to='/profile' className='loginNavigation'> Profile</Link> </H3>
             <H3><a href='https://symthinity-spotify-song-suggester-1.netlify.com/' className='loginNavigation'> Marketing Page </a></H3>

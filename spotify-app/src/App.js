@@ -25,6 +25,7 @@ function App() {
     
   <Switch>
     <PrivateRoute exact path='/fav' component={FavoriteList}/>
+    <PrivateRoute exact path='/home' component={HomePage}/>
     <Route path="/login" exact component={Login}/>
     <Route exact path='/register' component={Register}/>
     <PrivateRoute exact path='/profile' component={Profile}/>

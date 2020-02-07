@@ -17,7 +17,8 @@ const useStyles = makeStyles(theme => ({
   root: {
     display: 'flex',
     justifyContent:'center',
-    maxwidth:'300px'
+    maxwidth:'300px',
+    backgroundImage:'./Images/background.PNG'
   },
   details: {
     display: 'flex',
@@ -28,6 +29,7 @@ const useStyles = makeStyles(theme => ({
     flex: '1 0 auto',
     minwidth:'200px',
     maxwidth:'200px',
+    
   },
   cover: {
     width: 151,
