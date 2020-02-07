@@ -109,5 +109,4 @@ console.log('this is search results',searchResults)
   );
 }
 
-export default HomePage;
  
