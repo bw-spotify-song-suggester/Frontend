@@ -8,13 +8,13 @@ const P = styled.body`
   .footer {
     height: 50px;
     text-align:center;
+    color:#EF019F;
   }
 `;
 const Footer = () => {
     return (
         <P>
   <div class="content">
-    content
   </div>
   <footer class="footer"> Copyright © 2020 Song Suggestor</footer>
 </P>
