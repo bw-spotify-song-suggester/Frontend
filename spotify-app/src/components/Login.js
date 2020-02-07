@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { FormGroup, FormControl, FormLabel } from "react-bootstrap";
 import { withStyles, makeStyles, } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
@@ -8,6 +8,7 @@ import "./Login.css";
 import styled from 'styled-components'
 import Background from '../Images/background.PNG'
 import Button from '@material-ui/core/Button';
+
 
 const Div = styled.div`
 text-align:center
@@ -190,9 +191,11 @@ const useStyles = makeStyles(theme => ({
               <span> </span>
             )}
           </FormGroup>
+
           <BootstrapButton onClick={handleSubmit} disabled={!validateForm()} className='button' variant="contained" color="primary" disableRipple>
         Log In
       </BootstrapButton>
+
         </Form>
       </Div2>
     );

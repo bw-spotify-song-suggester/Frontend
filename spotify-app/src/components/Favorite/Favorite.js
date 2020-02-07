@@ -8,6 +8,9 @@ import Typography from '@material-ui/core/Typography';
 import SkipPreviousIcon from '@material-ui/icons/SkipPrevious';
 import PlayArrowIcon from '@material-ui/icons/PlayArrow';
 import SkipNextIcon from '@material-ui/icons/SkipNext';
+import Button from '@material-ui/core/Button';
+import DeleteIcon from '@material-ui/icons/Delete';
+import {axiosWithAuth} from '../../utilities/axiosWithAuth'
 
 import styled from 'styled-components'
 const Div = styled.div`
@@ -18,10 +21,13 @@ max-width:30%;
 const useStyles = makeStyles(theme => ({
     root: {
       display: 'flex',
+      textAlign:'center',
+      justifyContent:'center'
     },
     details: {
       display: 'flex',
       flexDirection: 'column',
+      textAlign:'center'
     },
     content: {
       flex: '1 0 auto',
@@ -41,40 +47,59 @@ const useStyles = makeStyles(theme => ({
     },
   }));
  
+const id = `${localStorage.getItem('id')}`
 
 const Favorite = (props) => {
 const classes = useStyles();
 const theme = useTheme();
+
+
+const [state, setState] = useState({
+	song_id: `${props.data.track_id}`
+  })
+  
+  console.log('this is state', state) 
+console.log('this is props in fav',props.history)
+console.log('this is props data',props.data)
+console.log(props)
+
+function handleDelete(e){
+  console.log('state in delete', state.song_id)
+  e.preventDefault();
+    axiosWithAuth()
+    .delete(`https://spotify-buildweek.herokuapp.com/api/user/dashboard/${id}/favorites/${state.song_id}`)
+    .then(response => {
+        console.log('this is delete res',response)
+        props.history.push('')
+    })
+    .catch(error => {
+        console.log('ehh error', error)
+    },[])
+  }
+
     console.log("Favorite:", props);
-    return (
+      return (
         <Div>
         <Card className={classes.root}>
       <div className={classes.details}>
-        <CardContent className={classes.content}>
+        <CardContent className={classes.content} >
           <Typography component="h5" variant="h5">
           {props.data.track_name}
           </Typography>
           <Typography variant="subtitle1" color="textSecondary">
           {props.data.artist_name}
           </Typography>
+          <Button
+          onClick={handleDelete}
+        variant="contained"
+        color="secondary"
+        className={classes.button}
+        startIcon={<DeleteIcon />}
+      >
+        Delete
+      </Button>
         </CardContent>
-        <div className={classes.controls}>
-          <IconButton aria-label="previous">
-            {theme.direction === 'rtl' ? <SkipNextIcon /> : <SkipPreviousIcon />}
-          </IconButton>
-          <IconButton aria-label="play/pause">
-            <PlayArrowIcon className={classes.playIcon} />
-          </IconButton>
-          <IconButton aria-label="next">
-            {theme.direction === 'rtl' ? <SkipPreviousIcon /> : <SkipNextIcon />}
-          </IconButton>
-        </div>
       </div>
-      <CardMedia
-        className={classes.cover}
-        image="/static/images/cards/live-from-space.jpg"
-        title="Live from space album cover"
-      />
     </Card>
     </Div>
     )
