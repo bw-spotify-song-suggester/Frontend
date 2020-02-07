@@ -23,17 +23,19 @@ function App(props) {
      
   <UserIdContext.Provider value={id}>
   <Switch>
+
     <PrivateRoute exact path='/fav'>
       <Navigation />
       <FavoriteList />
       </PrivateRoute>
-    <Route path="/login" component={Login}/>
+
+    <Route path="" component={Login}/>
     <Route exact path='/register' component={Register}/>
     <PrivateRoute exact path='/profile' >
       <Navigation />
       <Profile />
       </PrivateRoute>
-    <PrivateRoute exact path=''>
+    <PrivateRoute exact path='homepage'>
       <Navigation history={props}/>
       <HomePage />
     </ PrivateRoute>
