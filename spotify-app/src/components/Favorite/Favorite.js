@@ -12,6 +12,7 @@ import Button from '@material-ui/core/Button';
 import DeleteIcon from '@material-ui/icons/Delete';
 import {axiosWithAuth} from '../../utilities/axiosWithAuth'
 
+
 import styled from 'styled-components'
 const Div = styled.div`
 margin:2% auto;
@@ -59,18 +60,17 @@ const [state, setState] = useState({
   })
   
   console.log('this is state', state) 
-console.log('this is props in fav',props.history)
+console.log('this is props in fav', props.history)
 console.log('this is props data',props.data)
 console.log(props)
 
-function handleDelete(e){
+function handleDelete(){
   console.log('state in delete', state.song_id)
-  e.preventDefault();
     axiosWithAuth()
     .delete(`https://spotify-buildweek.herokuapp.com/api/user/dashboard/${id}/favorites/${state.song_id}`)
     .then(response => {
         console.log('this is delete res',response)
-        props.history.push('/homepage')
+        props.history.go('/fav')
     })
     .catch(error => {
         console.log('ehh error', error)

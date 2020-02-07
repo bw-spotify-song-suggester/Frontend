@@ -13,7 +13,7 @@ import { axiosWithAuth } from './utilities/axiosWithAuth'
 import  {UserIdContext}  from './contexts/UserIdContext'
 import HomePageCard from './components/HomePageCard';
 import Profile from './components/Profile';
-import history from './components/history';
+import history from './components/history'
 
 function App(props) {
   const id = `${localStorage.getItem('id')}`
@@ -23,10 +23,9 @@ function App(props) {
      
   <UserIdContext.Provider value={id}>
   <Switch>
-
     <PrivateRoute exact path='/fav'>
       <Navigation />
-      <FavoriteList />
+      <FavoriteList history={history}/>
       </PrivateRoute>
     <Route path='/register' component={Register}/>
     <PrivateRoute exact path='/profile' >
@@ -34,13 +33,12 @@ function App(props) {
       <Profile />
       </PrivateRoute>
     <PrivateRoute exact path='/homepage'>
-      <Navigation history={props}/>
+      <Navigation />
       <HomePage />
     </ PrivateRoute>
     <Route exact path="" component={Login}/>
     </Switch>
     </UserIdContext.Provider>
-  
     <Footer/>
     </div>
   );
