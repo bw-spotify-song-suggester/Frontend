@@ -3,6 +3,7 @@ import { FormGroup, FormControl, FormLabel } from "react-bootstrap";
 import { withStyles, makeStyles, } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import axios from 'axios'
+import { Link } from 'react-router-dom';
 
 import "./Login.css";
 import styled from 'styled-components'
@@ -161,6 +162,7 @@ const useStyles = makeStyles(theme => ({
         <Div>
         <h1>Welcome</h1>
         <h3>Hello, Welcome back please log in.</h3>
+        <h3>New user Register <Link to='/register'>Here</Link></h3>
         </Div>
         <Form onSubmit={handleSubmit}>
           <FormGroup controlId="Username" bsSize="large">
