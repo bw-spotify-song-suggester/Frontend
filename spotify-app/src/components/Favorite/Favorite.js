@@ -70,7 +70,7 @@ function handleDelete(e){
     .delete(`https://spotify-buildweek.herokuapp.com/api/user/dashboard/${id}/favorites/${state.song_id}`)
     .then(response => {
         console.log('this is delete res',response)
-        props.history.push('')
+        props.history.push('/homepage')
     })
     .catch(error => {
         console.log('ehh error', error)
