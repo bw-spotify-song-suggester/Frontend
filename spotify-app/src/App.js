@@ -28,18 +28,16 @@ function App(props) {
       <Navigation />
       <FavoriteList />
       </PrivateRoute>
-    <Switch>
     <Route path='/register' component={Register}/>
-    <Route exact path="" component={Login}/>
-    </Switch>
     <PrivateRoute exact path='/profile' >
       <Navigation />
       <Profile />
       </PrivateRoute>
-    <PrivateRoute exact path='homepage'>
+    <PrivateRoute exact path='/homepage'>
       <Navigation history={props}/>
       <HomePage />
     </ PrivateRoute>
+    <Route exact path="" component={Login}/>
     </Switch>
     </UserIdContext.Provider>
   
