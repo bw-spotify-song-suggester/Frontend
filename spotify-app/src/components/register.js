@@ -5,7 +5,7 @@ import axiosWithAuth from '../utilities/axiosWithAuth'
 import { FormGroup, FormControl, FormLabel } from "react-bootstrap";
 import { withStyles, makeStyles, } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
-
+import { Link } from 'react-router-dom';
 
 import Background from '../Images/background2.png'
 import Button from '@material-ui/core/Button';
@@ -160,6 +160,7 @@ const Register = (props) => {
       <Div>
       <h1>Welcome</h1>
       <h3>Hello, Please Register here.</h3>
+      <h3>Already have an account? Login <Link to='/login'>Here</Link></h3>
       </Div>
       <Form onSubmit={handleSubmit}>
         <FormGroup controlId="Username" bsSize="large">

@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom';
+import history from './history';
 
 const Div = styled.div`
 display:flex;
@@ -36,17 +37,24 @@ cursor: pointer;
 }
 `;
 
-const Navigation = () => {
+
+const Navigation = (props) => {
+    const Logout =()=> {
+        {localStorage.removeItem('id')}
+        {localStorage.removeItem('token')}
+        history.push('/login')
+        }
+        console.log('this is props in navigation', history)
     return (
         <Div>
             <H1> Song Suggester </H1>
             <Div2>
-            <H3><Link exact to='/login' className='loginNavigation'>Sign in</Link></H3>
-            <H3><Link exact to='/register' className='loginNavigation'>Sign Up</Link></H3>
+            
+            <H3><Link exact to='' className='loginNavigation'> Search </Link> </H3>
             <H3><Link exact to='/fav' className='loginNavigation'> Favorites</Link> </H3>
             <H3><Link exact to='/profile' className='loginNavigation'> Profile</Link> </H3>
             <H3><a href='https://symthinity-spotify-song-suggester-1.netlify.com/' className='loginNavigation'> Marketing Page </a></H3>
-          
+            <H3 onClick={Logout}> Log Out </H3>
             </Div2>
         </Div>
     )

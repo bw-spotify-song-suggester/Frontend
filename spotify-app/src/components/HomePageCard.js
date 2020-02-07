@@ -12,6 +12,7 @@ import styled from 'styled-components'
 import SaveIcon from '@material-ui/icons/Save';
 import Button from '@material-ui/core/Button';
 import {axiosWithAuth} from '../utilities/axiosWithAuth'
+import axios from 'axios'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -87,11 +88,11 @@ console.log('this is fav state outside ',state)
             console.log('ehh error', error)
         },[])
       }
-console.log('hey')
+
       function handleSim(e){
         e.preventDefault();
         console.log('sim in handlesim',sim)
-        axiosWithAuth().post('https://song-suggest-josh.herokuapp.com/processjson', sim)
+        axios.post('https://song-suggest-josh.herokuapp.com/processjson', sim)
         .then(response => {
           console.log('this is sim res',response)
             console.log('this is fav state',state)

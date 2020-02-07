@@ -82,7 +82,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const Profile = () => {
+const Profile = (props) => {
     const classes = useStyles();
     const id = useContext(UserIdContext);
 
@@ -101,6 +101,7 @@ const Profile = () => {
           .put(`https://spotify-buildweek.herokuapp.com/api/user/dashboard/${id}`, state)
           .then(response => {
               console.log('this is update res',response)
+              props.history.push('')
           })
           .catch(error => {
               console.log('ehh error', error)
