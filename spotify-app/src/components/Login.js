@@ -144,7 +144,7 @@ const useStyles = makeStyles(theme => ({
         console.log(res)
         localStorage.setItem('token', res.data.token);
         localStorage.setItem('id', res.data.id)
-        props.history.push('');
+        props.history.push('/homepage');
     })
     .catch(err => console.log(err));
 }
