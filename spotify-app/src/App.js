@@ -1,43 +1,44 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import Login from './components/Login';
 import Navigation from './components/Navigation';
-import { Router, Route , Switch} from "react-router-dom";
+import { Route , Switch} from "react-router-dom";
 import PrivateRoute from './components/privateRoute'
-import styled from 'styled-components'
+import {BrowserRouter as Router} from 'react-router-dom';
+
 import HomePage from './components/HomePage';
 import Footer from './components/footer';
 import Register from './components/register';
 import FavoriteList from '../src/components/Favorite/FavoriteLists'
 
-import { axiosWithAuth } from './utilities/axiosWithAuth'
+
 import  {UserIdContext}  from './contexts/UserIdContext'
-import HomePageCard from './components/HomePageCard';
+
 import Profile from './components/Profile';
 import history from './components/history'
+import HomePageCard from './components/HomePageCard';
 
-function App(props) {
+function App() {
   const id = `${localStorage.getItem('id')}`
   return (
     <div className="App">
     
      
   <UserIdContext.Provider value={id}>
+    <Router>
   <Switch>
     <PrivateRoute exact path='/fav'>
       <Navigation />
       <FavoriteList history={history}/>
-      </PrivateRoute>
+    </PrivateRoute>
     <Route path='/register' component={Register}/>
     <PrivateRoute exact path='/profile' >
       <Navigation />
       <Profile />
-      </PrivateRoute>
-    <PrivateRoute exact path='/homepage'>
-      <Navigation />
-      <HomePage />
-    </ PrivateRoute>
+    </PrivateRoute>
+    <PrivateRoute exact path='/homepage'component={HomePage}/>
     <Route exact path="" component={Login}/>
     </Switch>
+    </Router>
     </UserIdContext.Provider>
     <Footer/>
     </div>

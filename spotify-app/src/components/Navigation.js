@@ -42,7 +42,7 @@ const Navigation = (props) => {
     const Logout =()=> {
         {localStorage.removeItem('id')}
         {localStorage.removeItem('token')}
-        history.go('')
+        history.push('')
         }
         console.log('this is props in navigation', history)
     return (
